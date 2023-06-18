@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "3998bf40-5d52-4cfb-88ba-260d09dc74d7",
+		"name": "JobCollections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19190314"
+	},
+	"item": [
+		{
+			"name": "Get All Sentences",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/sentences?page=1&limit=10",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"sentences"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "category",
+							"value": "soft",
+							"disabled": true
+						},
+						{
+							"key": "sortBy",
+							"value": "id",
+							"disabled": true
+						},
+						{
+							"key": "sortDirection",
+							"value": "ASC",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sentence by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/sentences/1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"sentences",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Translate Sentence",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/sentences/translate/5?lang=EN",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"sentences",
+						"translate",
+						"5"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "EN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\":\"random user\",\r\n    \"password\":\"random password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/authentication/login",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"authentication",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Sentence",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"New Sentence\",\r\n    \"categories\": {\r\n        \"responsibility\": 0,\r\n        \"benefit\": 0,\r\n        \"none\": 1,\r\n        \"education\": 0,\r\n        \"experience\": 0,\r\n        \"soft\": 0,\r\n        \"tech\": 0\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/sentences",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"sentences"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Sentence",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"New Sentence\",\r\n    \"categories\": {\r\n        \"responsibility\": 0,\r\n        \"benefit\": 0,\r\n        \"none\": 1,\r\n        \"education\": 0,\r\n        \"experience\": 0,\r\n        \"soft\": 0,\r\n        \"tech\": 0\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/sentences/1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"sentences",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Sentence",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URL}}/api/sentences/1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"sentences",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "localhost:3000"
+		},
+		{
+			"key": "JWT",
+			"value": "Replace with login one"
+		}
+	]
+}
